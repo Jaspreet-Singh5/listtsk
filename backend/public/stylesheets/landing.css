@@ -1,0 +1,415 @@
+/* COLOR VARIABLES */
+:root {
+    --color-primary-dark: rgb(231, 127, 103);
+    --color-primary: rgb(255, 136, 77);
+
+    --color-secondary: rgb(255, 204, 102);
+    
+    --color-tertiary: rgb(255, 230, 128);
+    --color-tertiary-light: rgb(255, 235, 153);
+    
+    --color-grey-light-1: rgb(223, 230, 233);
+    --color-grey-light-2: rgb(178, 190, 195);
+
+    --color-grey-dark-1: rgb(99, 110, 114);
+    --color-grey-dark-2: rgb(45, 52, 54);
+    
+    --color-button-dark-1: rgb(214, 48, 49);
+    --color-button-dark-2: rgb(205, 97, 51);
+    
+    --color-card-light: rgb(248, 194, 145);
+
+    /* FONT VARIABLES */
+    --font-primary: 'Nunito', sans-serif;
+    --font-display: 'Josefin Sans', sans-serif;
+
+    /* BREAKPOINTS */
+    --bp-largest: 75em;
+    --bp-large: 62.5em;
+    --bp-medium: 50em;
+    --bp-small: 37.5em;
+}
+
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 123.75%;
+}
+
+@media only screen and (max-width: var(--bp-largest)) {
+    html {
+        font-size: 75%;
+    }
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-grey-dark-2);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 10vh 20vh 10vh 60vh repeat(4, min-content);
+    grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) 
+                           [center-end] minmax(6rem, 1fr) [full-end];
+
+    @media only screen and (max-width: var(--bp-large)) {
+        grid-template-rows: 5vh 10vh 5vh 80vh repeat(4, min-content);
+        grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) 
+                           [center-end] minmax(6rem, 1fr) [full-end];
+    }
+
+    @media only screen and (max-width: var(--bp-medium)) {
+        grid-template-rows: 2.5vh 5vh 2.5vh 90vh repeat(4, min-content);
+    }
+}
+
+.animatedFrame {
+    background-color: var(--color-tertiary);
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+}
+
+.navbar {
+    background-color: var(--color-tertiary-light);
+    grid-column: 5 / -1;
+    grid-row: 1 / 2;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    padding-left: 2rem;
+    height: 100%;
+}
+
+.navbar ul li {
+    list-style-type: none;
+    text-decoration: none;
+    
+    padding-right: 2rem;
+}
+
+.search-section {
+    background-color: var(--color-primary);
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    height: 100%;
+}
+
+.logo {
+    height: 100%;
+    width: 15rem;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 17rem;
+    
+    padding-left: 3rem;
+}
+
+.search-box {
+    width: 10rem;
+    border-radius: 2px;
+    border: 1px solid var(--color-grey-light-1);
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.search-box::placeholder {
+    text-transform: capitalize;
+    color: var(--color-grey-light-2);
+    font-size: 1rem;
+}
+
+.btn-search {
+    background-color: transparent;
+    border: 1px solid var(--color-button-dark-1);
+    border-radius: 2px;
+    font-size: .5rem;
+    height: 2rem;
+    width: 3rem;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.checkout-section {
+    background-color: var(--color-secondary);
+    grid-column: 6 / -1;
+    grid-row: 2 / 3;
+    
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    
+    height: 100%;
+}
+
+.checkout {
+    height: 3rem;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.shopping-cart {
+    background-color: var(--color-button-dark-2);
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 1rem;
+}
+
+.cartInfo {
+    background-color: white;
+    height: 100%;
+    padding: 1rem;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    background-color: var(--color-primary-dark);
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    height: 100%;
+    width: 70%;
+}
+
+.menu ul li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.header {
+    background-image: url("https://images.unsplash.com/photo-1452587925148-ce544e77e70d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+}
+
+.best-courses-section {
+    grid-column: 1 / -1;
+    grid-row: 5 / 6; 
+}
+
+div.best-courses-section h1, div.latest-courses-section h1, div.sale-courses-section h1 {
+    margin: 1.5rem 0 1.5rem 0;
+    background-color: var(--color-primary-dark);
+    text-align: center;
+}
+
+.best-courses-card-section {
+    background-color: var(--color-card-light);
+}
+
+.best-courses-cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 2rem;
+}
+
+.best-courses-card {
+    height: auto;
+    width: 40%;
+    background-color: white;
+    border: 1px solid var(--color-grey-light-1);
+    border-radius: 2px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    align-self: normal;
+    flex-direction: column;
+}
+
+.card-title {
+    color: black;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.card-image {
+    width: 100%;
+}
+
+.card-description {
+    padding: 1rem 0rem 1rem 0rem;
+    font-size: .5rem;
+    text-align: justify;
+}
+
+.card-add-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-add {
+    background-color: white;
+    display: inline;
+    width: 5rem;
+    border: 1px solid var(--color-button-dark-1);
+    border-radius: 2px;
+    font-size: .6rem;
+    padding: .3rem;
+}
+
+.card-price {
+    font-size: .7rem;
+    font-weight: bold;
+}
+
+.latest-courses-section {
+    grid-column: 1 / -1;
+    grid-row: 6 / 7; 
+}
+
+.latest-courses-card {
+    height: auto;
+    width: 31%;
+    background-color: white;
+    border: 1px solid var(--color-grey-light-1);
+    border-radius: 2px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-self: normal;
+    margin-bottom: 2rem;
+}
+
+.sale-courses-section {
+    grid-column: 1 / -1;
+    grid-row: 7 / 8; 
+}
+
+.sale-courses-card {
+    height: auto;
+    width: 31%;
+    background-color: white;
+    border: 1px solid var(--color-button-dark-1);
+    border-width: 1px 2px 2px 1px;
+    border-radius: 2px;
+    padding: 1rem;
+    align-self: normal;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    background-color: var(--color-card-light);
+    grid-column: 1 / -1;
+    grid-row: 8 / -1;
+    border: 1px solid var(--color-button-dark-1);
+    padding: 2rem;
+    margin: 1.5rem 0 1.5rem 0;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info .div, .info ul li {
+    padding: .3rem;    
+}
+
+.info-header {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.info ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    height: 100%;
+}
+
+.info ul li {
+    list-style-type: none;
+    text-decoration: none;
+    font-size: .8rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    align-self: flex-start;
+}
+
+.social-media .div, .social-media ul li {
+    padding: .3rem;    
+}
+
+.info-header {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.social-media ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100%;
+}
+
+.social-media ul li {
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 2rem;
+}
